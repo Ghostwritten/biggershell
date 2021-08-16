@@ -1,6 +1,14 @@
 #!/bin/bash
 
-#读取数组
+#----------------------------------
+# FUNCTION: Multi-line comment
+# AUTHER: 1zoxun1@gmail.com
+# DATE: 2021-08-16 03:04:55 
+#-----------------------------------
+
+
+# Reads an array
+# 读取数组
 example1() {
 
 my_array=(A B "C" D)
@@ -20,7 +28,8 @@ my_array=(A B "C" D)
 example1
 
 
-#获取数组中的所有元素
+# Gets all the elements in an array
+# 获取数组中的所有元素
 example2() {
 
  my_array[0]=A
@@ -39,10 +48,11 @@ example2() {
 }
 
 
-
 example2
 
-#获取数组的长度
+
+# Gets the length of the array
+# 获取数组的长度
 example3() {
 
 my_array[0]=A
