@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #----------------------------------
-# FUNCTION: Multi-line comment
+# FUNCTION: IFS Custom delimiter
 # AUTHER: 1zoxun1@gmail.com
 # DATE: 2021-08-16 03:04:55 
 #-----------------------------------
