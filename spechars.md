@@ -1,7 +1,7 @@
 
 ##  '#'
 
-`
+```
 echo "The # here does not begin a comment." 
 echo 'The # here does not begin a comment.' 
 echo The \# here does not begin a comment. 
@@ -18,4 +18,4 @@ The # here does not begin a comment.
 The
 /usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
 43
-`
+```
