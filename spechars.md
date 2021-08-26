@@ -278,7 +278,7 @@ test 表达式放在[[]]中
 bash$grep '\<the\>' textfile 
 ```
 
-# `|`
+## `|`
 管道.分析前边命令的输出,并将输出作为后边命令的输入.这是一种产生命令链的好方法. 
 
 ```
@@ -303,4 +303,84 @@ bash$ ls -l | ./uppercase.sh
 -RW-R--R-- 1 ROOT ROOT  185 JUL 20 07:16 BREAK1.SH
 -RW-R--R-- 1 ROOT ROOT  118 AUG 22 14:33 CASE.SH
 -RW-R--R-- 1 ROOT ROOT 1395 AUG 22 13:57 CLEANLOG.SH
+```
+
+## `>|`
+强制重定向
+
+##  `||`
+或-逻辑操作
+
+## `&`
+后台运行命令.一个命令后边跟一个&,将表示在后台运行.
+```
+bash$ sleep 10 &
+[1] 850 
+[1]+ Done sleep 10 
+```
+
+在后台运行一个循环
+bash$ cat test.sh 
+#!/bin/bash 
+#background-loop.sh 
+
+for i in 1 2 3 4 5 6 7 8 9 10 #第一个循环
+do 
+  echo -n "$i" 
+done& 
+
+echo
+
+for i in 11 12 13 14 15 16 17 18 19 20 #第二个循环
+do 
+  echo -n "$i" 
+done 
+
+echo
+
+bash$ bash test.sh 
+11121314151617181920
+12345678910
+
+```
+
+## `&&`
+与-逻辑操作
+
+## `-`
+- 选项,前缀.在所有的命令内如果想使用选项参数的话,前边都要加上"-".
+```
+ls -al 
+sort -dfu $filename
+set -- $variable
+
+if [ $file1 -ot $file2 ] 
+then 
+  echo "File $file1 is older than $file2." 
+fi 
+
+if [ "$a" -eq "$b" ] 
+then 
+  echo "$a is equal to $b." 
+fi 
+ 
+if [ "$c" -eq 24 -a "$d" -eq 47 ] 
+then 
+  echo "$c equals 24 and $d equals 47." 
+fi 
+```
+- 用于重定向 stdin 或 stdout.
+```
+bash$ ls array
+array1/ array2/ 
+bash$ ls array1/
+array1.sh
+bash$ ls array2/
+bash$ (cd /root/shell/array1 && tar cf - .) | (cd /root/shell/array2 && tar xpvg -)
+./
+./array1.sh
+bash$ ls array2/
+array1.sh
+bash$ ls array1/
+array1.sh
 ```
