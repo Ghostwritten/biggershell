@@ -320,6 +320,7 @@ bash$ sleep 10 &
 ```
 
 在后台运行一个循环
+```
 bash$ cat test.sh 
 #!/bin/bash 
 #background-loop.sh 
