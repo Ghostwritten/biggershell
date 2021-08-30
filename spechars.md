@@ -384,4 +384,41 @@ bash$ ls array2/
 array1.sh
 bash$ ls array1/
 array1.sh
+
+bash$ bunzip2 linux-2.6.13.tar.bz2 | tar xvf -
+bash$ echo "whatever" | cat -
+bash$ grep Linux file1 | diff file2 -
 ```
+- 备份最后一天所有修改的文件. 
+
+`
+#!/bin/bash 
+BACKUPFILE=backup-$(date +%m-%d-%Y) 
+archive=${1:-$BACKUPFILE} 
+tar cvf - `find . -mtime -1 -type f -print` > $archive.tar 
+gzip $archive.tar 
+Directory /root/shell backed up in archive file "backup-08-30-2021.tar.gz".
+`
+`
+bash$ bash backup.sh 
+backup-08-30-2021.tar.gz
+`
+两种备份方式
+```    
+find . -mtime -1 -type f -print0 | xargs -0 tar rvf "$archive.tar" 
+find . -mtime -1 -type f -exec tar rvf "$archive.tar" '{}' \;
+```
+- 之前工作的目录."cd -"将回到之前的工作目录
+- 算术减号.
+
+## `=`
+- 算术等号,有时也用来比较字符串.
+
+##  `+`
+算术加号,也用在正则表达式中.
+
+##  `%`
+算术取模运算.也用在正则表达式中
+
+## `^`
+行首,正则表达式中表示行首."^"定位到行首
